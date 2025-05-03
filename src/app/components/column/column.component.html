@@ -1,5 +1,5 @@
 <div class="column">
-  <h2>{{ title }}</h2>
+  <h2 class="column-title">{{ title }}</h2>
   <div cdkDropList [cdkDropListData]="tasks" class="list" (cdkDropListDropped)="onDrop($event)">
     <div class="item" *ngFor="let item of tasks" cdkDrag>{{item}}</div>
   </div>
