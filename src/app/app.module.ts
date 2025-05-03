@@ -4,10 +4,12 @@ import { DragDropModule } from '@angular/cdk/drag-drop'; // Import DragDropModul
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ColumnComponent } from './components/column/column.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ColumnComponent
   ],
   imports: [
     BrowserModule,

@@ -1,41 +1,25 @@
-
-
-
-
 <div class="content" role="main">
   <div cdkDropListGroup class="container">
-    <div class="column">
-      <h2>To do</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="todo"
-        class="list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="item" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-      </div>
-    </div>
+    <!-- Use app-column for the 'To do' list -->
+    <app-column
+      title="To do"
+      [tasks]="todo"
+      (itemDropped)="drop($event)">
+    </app-column>
 
-    <div class="column">
-      <h2>In Progress</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="inProgress"
-        class="list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="item" *ngFor="let item of inProgress" cdkDrag>{{item}}</div>
-      </div>
-    </div>
+    <!-- Use app-column for the 'In Progress' list -->
+    <app-column
+      title="In Progress"
+      [tasks]="inProgress"
+      (itemDropped)="drop($event)">
+    </app-column>
 
-    <div class="column">
-      <h2>Done</h2>
-      <div
-        cdkDropList
-        [cdkDropListData]="done"
-        class="list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="item" *ngFor="let item of done" cdkDrag>{{item}}</div>
-      </div>
-    </div>
+    <!-- Use app-column for the 'Done' list -->
+    <app-column
+      title="Done"
+      [tasks]="done"
+      (itemDropped)="drop($event)">
+    </app-column>
   </div>
 </div>
 
