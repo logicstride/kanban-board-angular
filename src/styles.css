@@ -11,6 +11,10 @@ input {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   gap: 20px;
@@ -139,4 +143,28 @@ app-column {
   background-color: #6c757d;
   border-color: #6c757d;
   color: white;
+}
+
+.action-icon-btn {
+  padding: 3px 3px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.action-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.action-icon-wrap {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.item-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
