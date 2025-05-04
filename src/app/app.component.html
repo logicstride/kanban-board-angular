@@ -4,21 +4,24 @@
     <app-column
       title="To do"
       [tasks]="todo"
-      (itemDropped)="drop($event)">
+      (taskDropped)="drop($event)"
+      (taskAdded)="addTask(todo, $event)">
     </app-column>
 
     <!-- Use app-column for the 'In Progress' list -->
     <app-column
       title="In Progress"
       [tasks]="inProgress"
-      (itemDropped)="drop($event)">
+      (taskDropped)="drop($event)"
+      (taskAdded)="addTask(inProgress, $event)">
     </app-column>
 
     <!-- Use app-column for the 'Done' list -->
     <app-column
       title="Done"
       [tasks]="done"
-      (itemDropped)="drop($event)">
+      (taskDropped)="drop($event)"
+      (taskAdded)="addTask(done, $event)">
     </app-column>
   </div>
 </div>

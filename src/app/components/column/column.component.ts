@@ -1,5 +1,6 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Task} from '../../task.model'
 
 @Component({
   selector: 'app-column',
@@ -8,10 +9,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ColumnComponent {
   @Input() title: string = '';
-  @Input() tasks: string[] = [];
-  @Output() itemDropped = new EventEmitter<CdkDragDrop<string[]>>();
+  @Input() tasks: Task[] = []; // Change to Task[]
+  @Output() taskDropped = new EventEmitter<CdkDragDrop<Task[]>>(); // Change to Task[]
+  @Output() taskAdded = new EventEmitter<string>(); // Keep this for the title
 
-  onDrop(event: CdkDragDrop<string[]>) {
-    this.itemDropped.emit(event);
+  newTaskTitle: string = '';
+
+  // Change method signature to Task[]
+  onDrop(event: CdkDragDrop<Task[]>) {
+    this.taskDropped.emit(event);
+  }
+
+  addTask() {
+    if (this.newTaskTitle.trim()) {
+      this.taskAdded.emit(this.newTaskTitle.trim());
+      this.newTaskTitle = '';
+    }
   }
 }
