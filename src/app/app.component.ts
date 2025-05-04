@@ -111,5 +111,49 @@ export class AppComponent implements OnInit { // Implement OnInit
       list.push(newTask);
       this.saveState(); // Save state after adding
     }
+    this.saveState();
+  }
+
+  handleEditTask(taskId: number): void {
+    // Find the task across all lists
+    let taskToEdit: Task | undefined;
+    let listSource: Task[] | undefined;
+
+    for (const list of [this.todo, this.inProgress, this.done]) {
+      taskToEdit = list.find(task => task.id === taskId);
+      if (taskToEdit) {
+        listSource = list;
+        break;
+      }
+    }
+
+    if (taskToEdit && listSource) {
+      const newTitle = prompt('Enter new task title:', taskToEdit.title); // Simple prompt for now
+      if (newTitle !== null && newTitle.trim() !== '') {
+        taskToEdit.title = newTitle.trim();
+        this.saveState(); // Save state after editing
+      }
+    } else {
+      console.error('Task not found for editing:', taskId);
+    }
+  }
+
+  handleDeleteTask(taskId: number): void {
+    let taskFound = false;
+    // Iterate through lists to find and remove the task
+    for (const list of [this.todo, this.inProgress, this.done]) {
+      const index = list.findIndex(task => task.id === taskId);
+      if (index !== -1) {
+        list.splice(index, 1); // Remove the task from the list
+        taskFound = true;
+        break; // Exit loop once task is found and removed
+      }
+    }
+
+    if (taskFound) {
+      this.saveState(); // Save state after deleting
+    } else {
+      console.error('Task not found for deletion:', taskId);
+    }
   }
 }

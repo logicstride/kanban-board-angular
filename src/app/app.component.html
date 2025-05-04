@@ -1,27 +1,31 @@
 <div class="content" role="main">
   <div cdkDropListGroup class="container">
-    <!-- Use app-column for the 'To do' list -->
+    <!-- Bind to taskEdited and taskDeleted events -->
     <app-column
       title="To do"
       [tasks]="todo"
       (taskDropped)="drop($event)"
-      (taskAdded)="addTask(todo, $event)">
+      (taskAdded)="addTask(todo, $event)"
+      (taskEdited)="handleEditTask($event)"
+      (taskDeleted)="handleDeleteTask($event)">
     </app-column>
 
-    <!-- Use app-column for the 'In Progress' list -->
     <app-column
       title="In Progress"
       [tasks]="inProgress"
       (taskDropped)="drop($event)"
-      (taskAdded)="addTask(inProgress, $event)">
+      (taskAdded)="addTask(inProgress, $event)"
+      (taskEdited)="handleEditTask($event)"
+      (taskDeleted)="handleDeleteTask($event)">
     </app-column>
 
-    <!-- Use app-column for the 'Done' list -->
     <app-column
       title="Done"
       [tasks]="done"
       (taskDropped)="drop($event)"
-      (taskAdded)="addTask(done, $event)">
+      (taskAdded)="addTask(done, $event)"
+      (taskEdited)="handleEditTask($event)"
+      (taskDeleted)="handleDeleteTask($event)">
     </app-column>
   </div>
 </div>

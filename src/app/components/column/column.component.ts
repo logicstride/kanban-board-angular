@@ -9,13 +9,14 @@ import {Task} from '../../task.model'
 })
 export class ColumnComponent {
   @Input() title: string = '';
-  @Input() tasks: Task[] = []; // Change to Task[]
-  @Output() taskDropped = new EventEmitter<CdkDragDrop<Task[]>>(); // Change to Task[]
-  @Output() taskAdded = new EventEmitter<string>(); // Keep this for the title
+  @Input() tasks: Task[] = [];
+  @Output() taskDropped = new EventEmitter<CdkDragDrop<Task[]>>();
+  @Output() taskAdded = new EventEmitter<string>();
+  @Output() taskEdited = new EventEmitter<number>(); // Relay edit event
+  @Output() taskDeleted = new EventEmitter<number>(); // Relay delete event
 
   newTaskTitle: string = '';
 
-  // Change method signature to Task[]
   onDrop(event: CdkDragDrop<Task[]>) {
     this.taskDropped.emit(event);
   }
@@ -25,5 +26,14 @@ export class ColumnComponent {
       this.taskAdded.emit(this.newTaskTitle.trim());
       this.newTaskTitle = '';
     }
+  }
+
+  // Methods to relay events from TaskComponent
+  relayEditTask(taskId: number): void {
+    this.taskEdited.emit(taskId);
+  }
+
+  relayDeleteTask(taskId: number): void {
+    this.taskDeleted.emit(taskId);
   }
 }

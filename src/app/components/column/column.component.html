@@ -1,7 +1,7 @@
 <div class="column">
   <h2 class="column-title">{{ title }}</h2>
   <div cdkDropList [cdkDropListData]="tasks" class="list" (cdkDropListDropped)="onDrop($event)">
-    <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+    <app-task *ngFor="let task of tasks" [task]="task" (edit)="relayEditTask($event)" (delete)="relayDeleteTask($event)"></app-task>
   </div>
   <div class="add-task-container">
     <input type="text" [(ngModel)]="newTaskTitle" placeholder="New task title" (keyup.enter)="addTask()">
