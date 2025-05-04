@@ -7,7 +7,7 @@ This project is a simple Kanban board application built using Angular. It allows
 *   Create new tasks with titles and descriptions.
 *   View tasks organized in distinct columns (e.g., To Do, In Progress, Done).
 *   Drag and drop tasks between columns to update their status.
-*   (Potentially: Edit or delete existing tasks - *add/remove based on actual features*)
+*   Edit or delete existing tasks
 
 ## Tech Stack
 
@@ -21,11 +21,11 @@ You can access the live application here:
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/kanban-board` directory (as configured in `angular.json`). Use this command for production builds.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/kanban-board` directory (as configured in `angular.json`). Use this command for production builds.
 
 ## Running unit tests
 
